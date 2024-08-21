@@ -100,7 +100,7 @@ public class Factura {
 
         int opciones = 0;
         do {
-            opciones = Funciones.OpcionesMenu(Botones,"Selecione el tipo de facura","Tipo de factura");
+            opciones = Funciones.OpcionesMenu(Botones,"Selecione el tipo de pago","Tipo de pago");
             switch (opciones){
                 case 0: lector = "C"; break;
                 case 1: lector = "TC"; break;

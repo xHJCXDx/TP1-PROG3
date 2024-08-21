@@ -12,8 +12,8 @@ public class Main {
         //Solicitar datos
 
         factura.setFecha(Funciones.convertirStringADate());
-        factura.setNumero(Funciones.LimitacionNumericaInt("Numero de Factura","Numero",999999,1));
-        cliente.setNumero(Funciones.LimitacionNumericaInt("Numero de Cliente","Numero",999999,1));
+        factura.setNumero(Integer.parseInt(Funciones.InputDialogNoVacio("Numero de Factura")));
+        cliente.setNumero(Integer.parseInt(Funciones.InputDialogNoVacio("Numero de Cliente")));
         cliente.setRazonSocial(Funciones.InputDialogNoVacio("Razon Social"));
         cliente.setCuit(Long.parseLong(Funciones.InputDialogNoVacio("Cuit Cliente")));
         factura.setTipoPago(factura.TipodefacturaMetodo());
@@ -128,7 +128,7 @@ public class Main {
             System.out.printf("%-10s%-20s%-10s%-10s%-10s\n", cliente.getFactura().get(0).getDetalleFactura().get(i).getArticulo().getCodigo(),
                     cliente.getFactura().get(0).getDetalleFactura().get(i).getArticulo().getDenominacion(),
                     cliente.getFactura().get(0).getDetalleFactura().get(i).getArticulo().getPrecio(),
-                    cliente.getFactura().get(0).getDetalleFactura().get(i).getArticulo().getUnidadMedida(),
+                    cliente.getFactura().get(0).getDetalleFactura().get(i).getCantidad(),
                     cliente.getFactura().get(0).getDetalleFactura().get(i).getSubtotal());
         }
         System.out.println(); // Línea en blanco

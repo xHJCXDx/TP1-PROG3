@@ -100,7 +100,7 @@ public class Main {
         // Items de la tabla
         String[][] Items = factura.getItemsFactura();
         for(int i = 0; i < Items[0].length; i++){
-            System.out.printf("%-10s%-20s%-10s%-10s%-10s\n", Items[0][i] ,Items[1][i], Items[2][i], Items[3][i],SUBTOTAL[i]);
+            System.out.printf("%-10s%-20s%-10s%-10s%-10s\n", Items[0][i] ,Items[1][i], Items[2][i], CANTIDAD[i],SUBTOTAL[i]);
         }
         System.out.println(); // Línea en blanco
 

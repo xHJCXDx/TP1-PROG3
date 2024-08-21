@@ -57,7 +57,7 @@ public class Articulo {
         boolean NoEncontro = true;
         Articulo articulo = new Articulo();
         do {
-            for (int i = 0; i < LISTA.size(); i++) {
+            for (int i = 0; i <= LISTA.size(); i++) {
                 if (LISTA.get(i).codigo == Integer.parseInt(TextoDeIngreso)) {
                     JOptionPane.showMessageDialog(null,TextoEncontrada + TextoDeIngreso);
                     articulo = LISTA.get(i);
