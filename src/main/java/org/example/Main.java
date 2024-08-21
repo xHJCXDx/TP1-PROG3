@@ -56,7 +56,7 @@ public class Main {
         double total = 0;
         for (int i = 0; i < cantidadArticulos; i++){
             double precioD = Double.parseDouble(MATRIZ[2][i]);
-            SUBTOTAL[i] += precioD * cantidad;
+            SUBTOTAL[i] += precioD * Double.parseDouble(CANTIDAD[i]);
             total = total+SUBTOTAL[i];
         }
         //Monto total
