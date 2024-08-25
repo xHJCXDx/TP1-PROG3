@@ -3,27 +3,18 @@ package B;
 import java.util.ArrayList;
 
 public class Cliente {
-    private ArrayList<Factura> Factura = new ArrayList<Factura>();
     private int numero;
     private String razonSocial;
     private long cuit;
 
-    public Cliente(ArrayList<B.Factura> factura, int numero, String razonSocial, long cuit) {
-        Factura = factura;
+    public Cliente(int numero, String razonSocial, long cuit) {
+
         this.numero = numero;
         this.razonSocial = razonSocial;
         this.cuit = cuit;
     }
 
     public Cliente() {
-    }
-
-    public ArrayList<B.Factura> getFactura() {
-        return Factura;
-    }
-
-    public void setFactura(ArrayList<B.Factura> factura) {
-        Factura = factura;
     }
 
     public int getNumero() {

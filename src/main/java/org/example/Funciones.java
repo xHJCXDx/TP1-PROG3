@@ -122,7 +122,7 @@ public class Funciones {
         return COLUMNA;
     }
 
-    public static String[][] ReordenamosColumnas(String[][] arreglo) {
+    public static String[][] ReorColumnas(String[][] arreglo) {
         String[][] arregloInvertir = new String[arreglo[0].length][arreglo.length];
 
         //x = i | y = j
@@ -138,5 +138,20 @@ public class Funciones {
         int seleccion = JOptionPane.showOptionDialog(null, mensaje, titulo, JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, Botones, Botones[0]);
 
         return seleccion;
+    }
+
+    public static boolean CuadroDialogoVoF(String texto, String titulo) { //Nos deja responder SI: true // NO/cerrar: false
+        boolean respuesta = false;
+
+        int x = JOptionPane.showConfirmDialog(null, texto, titulo, JOptionPane.YES_NO_OPTION); //SI = 0 || NO = 1 || CERRAR = -1
+        if (x == 0) {
+            respuesta = true;
+        } if (x == 1) {
+            respuesta = false;
+        } if (x == -1){
+            System.exit(0);
+        }
+
+        return respuesta;
     }
 }

@@ -1,5 +1,7 @@
 package org.example;
 
+import javax.swing.*;
+
 public class Factura {
     private String fecha;
     private long nroFactura;
@@ -88,7 +90,6 @@ public class Factura {
     }
 
     //Metodos
-
     public String TipodefacturaMetodo(){
         String lector = "";
 
@@ -106,6 +107,54 @@ public class Factura {
         }while(lector.compareTo("Error") == 0);
 
         return lector;
+    }
+
+    public static double calcularRecargo(Factura factura){
+        double total = 0;
+        switch (factura.getTipoPago()){
+            case "C":
+                factura.setRecargo(0);
+                break;
+
+            case "TC":
+                factura.setRecargo(total * 0.10);
+                break;
+
+            case "TD":
+                factura.setRecargo(total * 0.05);
+                break;
+            default:
+                factura.setRecargo(0);
+                JOptionPane.showMessageDialog(null,"ERROR DE TIPO DE PAGO");
+                break;
+        }
+        return total;
+    }
+
+    public static void ImprimirFactura(Factura factura,String[] cantidades, double[] subtotales){
+        // Encabezado de la factura
+        System.out.printf("%-10s%-20s\n", "Cliente: ", factura.getCliente().getRazonSocial());
+        System.out.printf("%-10s%-20s\n", "Fecha", factura.getFecha());
+        System.out.printf("%-10s%-20s\n", "Numero:", factura.getNroFactura());
+        System.out.printf("%-10s%-20s\n", "Tipo Pago", factura.getTipoPago());
+
+        System.out.println(); // Línea en blanco
+
+        // Encabezado de la tabla de ítems
+        System.out.printf("%-10s%-20s%-10s%-10s%-10s\n", "Código ", "Denominación", "Precio", "Cantidad", "Subtotal");
+
+        // Items de la tabla
+        String[][] Items = factura.getItemsFactura();
+        for(int i = 0; i < Items[0].length; i++){
+            System.out.printf("%-10s%-20s%-10s%-10s%-10s\n", Items[0][i] ,Items[1][i], Items[2][i], cantidades[i],subtotales[i]);
+        }
+        System.out.println(); // Línea en blanco
+
+        // Totales
+        System.out.printf("%-40s%-10s\n", "Total Ítems: ", factura.getMontoTotalItems());
+        System.out.printf("%-40s%-10s\n", "Recargo: ", factura.getRecargo());
+        System.out.printf("%-40s%-10s\n", "Total Final: ", factura.getMontoFinal());
+
     }
 
 }

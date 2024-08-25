@@ -52,22 +52,22 @@ public class Articulo {
         this.unidadMedida = unidadMedida;
     }
 
-    public static Articulo BuscarEnListaYDevolver(ArrayList<Articulo> LISTA, String TextoDeIngreso, String TextoEncontrada, String TextoNoEncontrado) { //Se seguira ejecutando mientras el texto ingresado se encuentra dentro de la lista
+    public static Articulo BuscarEnListaYDevolver(ArrayList<Articulo> LISTA, String codigoArticulo, String TextoEncontrada, String TextoNoEncontrado) { //Se seguira ejecutando mientras el texto ingresado se encuentra dentro de la lista
 
         boolean NoEncontro = true;
         Articulo articulo = new Articulo();
         do {
-            for (int i = 0; i <= LISTA.size(); i++) {
-                if (LISTA.get(i).codigo == Integer.parseInt(TextoDeIngreso)) {
-                    JOptionPane.showMessageDialog(null,TextoEncontrada + TextoDeIngreso);
+            for (int i = 0; i < LISTA.size(); i++) {
+                if (LISTA.get(i).codigo == Integer.parseInt(codigoArticulo)) {
+                    JOptionPane.showMessageDialog(null,TextoEncontrada + codigoArticulo);
                     articulo = LISTA.get(i);
                     NoEncontro = false;
                     break;
                 }
             }
             if (NoEncontro) {
-                JOptionPane.showMessageDialog(null, TextoNoEncontrado + TextoDeIngreso);
-                TextoDeIngreso = Funciones.InputDialogNoVacio("Ingrese otro código de artículo");
+                JOptionPane.showMessageDialog(null, TextoNoEncontrado + codigoArticulo);
+                codigoArticulo = Funciones.InputDialogNoVacio("Ingrese otro código de artículo");
             }
         } while (NoEncontro);
 
